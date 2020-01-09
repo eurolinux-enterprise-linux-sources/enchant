@@ -1,7 +1,7 @@
 Summary: An Enchanting Spell Checking Library
 Name: enchant
 Version: 1.6.0
-Release: 6%{?dist}
+Release: 8%{?dist}
 Epoch: 1
 Group: System Environment/Libraries
 License: LGPLv2+
@@ -86,6 +86,12 @@ rm -f $RPM_BUILD_ROOT/%{_libdir}/enchant/*.la
 rm -r $RPM_BUILD_ROOT
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1:1.6.0-8
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1:1.6.0-7
+- Mass rebuild 2013-12-27
+
 * Wed Feb 13 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:1.6.0-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 
