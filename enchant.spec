@@ -1,7 +1,7 @@
 Summary: An Enchanting Spell Checking Library
 Name: enchant
 Version: 1.5.0
-Release: 4%{?dist}
+Release: 5%{?dist}
 Epoch: 1
 Group: System Environment/Libraries
 License: LGPLv2+
@@ -20,6 +20,8 @@ Patch0: enchant-1.5.0-abi12160.searchdirs.patch
 Patch1: enchant-1.5.0-abi12173.leaks.patch
 #http://bugzilla.abisource.com/show_bug.cgi?id=12174
 Patch2: enchant-1.5.0-abi12174.fixbadmatch.patch
+#http://bugzilla.abisource.com/show_bug.cgi?id=12350
+Patch3: enchant-1.5.0-abi12350.userdict.patch
 
 %description
 A library that wraps other spell checking backends.
@@ -55,6 +57,7 @@ Libraries, headers, and support files necessary to compile applications using li
 %patch0 -p1 -b .searchdirs
 %patch1 -p1 -b .leaks
 %patch2 -p1 -b .fixbadmatch
+%patch3 -p2 -b .userdict
 
 %build
 %configure --enable-myspell --with-myspell-dir=/usr/share/myspell --disable-static --disable-ispell --disable-hspell --disable-zemberek
@@ -98,6 +101,9 @@ rm -f $RPM_BUILD_ROOT/%{_libdir}/enchant/*.la
 rm -r $RPM_BUILD_ROOT
 
 %changelog
+* Mon Jan 19 2015 Dan Winship <danw@redhat.com> - 1:1.5.0-5
+- Fix saving the user dictionary (rh#1015310)
+
 * Mon Jan 25 2010 Dan Winship <danw@redhat.com> - 1:1.5.0-4
 - Fix file attributes in subpackages
 
